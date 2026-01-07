@@ -1,4 +1,5 @@
 import AppHeader from "@/components/AppHeader";
+import { useState } from "react";
 import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
 
 interface Watchlist {
@@ -9,7 +10,7 @@ interface Watchlist {
 const initialData: Watchlist[] = [
   {
     id: "1",
-    label: "Favorites"
+    label: "Favorites",
   },
   {
     id: "2",
@@ -21,7 +22,32 @@ const initialData: Watchlist[] = [
   }
 ]
 
+interface Pairs {
+  id: string,
+  name: string,
+}
+
+const initialPairs: Watchlist[] = [
+  {
+    id: "1",
+    label: "BTCUSD",
+  },
+  {
+    id: "2",
+    label: "ETHUSD"
+  }
+]
+
+
 export default function Index() {
+
+  const [visible, setVisible] = useState(true)
+
+  // function expandList() {
+  //   console.log(visible)
+  //   return setVisible(true);
+  // };
+
 
   return (
     <View style={styles.container}>
@@ -31,14 +57,17 @@ export default function Index() {
       <Text style={styles.text}>{initialData[0].label}</Text>
       <Text style={styles.text}>{initialData[1].label}</Text>
       <Text style={styles.text}>{initialData[2].label}</Text>
-      <Pressable>
+      <Pressable onPress={() => setVisible(!visible)}>
         <Text style={styles.text}>
           Click Me
         </Text>
       </Pressable>
-      <FlatList
-        data={initialData}
-        renderItem={({ item }) => <Text>{item.label}</Text>} />
+      {visible &&
+        <FlatList
+          data={initialPairs}
+          renderItem={({ item }) => <Text>{item.label}</Text>} />
+      }
+
     </View>
   );
 }
