@@ -43,12 +43,6 @@ export default function Index() {
 
   const [visible, setVisible] = useState(true)
 
-  // function expandList() {
-  //   console.log(visible)
-  //   return setVisible(true);
-  // };
-
-
   return (
     <View style={styles.container}>
       <AppHeader>
