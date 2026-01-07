@@ -27,17 +27,59 @@ interface Pairs {
   name: string,
 }
 
-const initialPairs: Watchlist[] = [
+const initialPairs: Pairs[] = [
   {
     id: "1",
-    label: "BTCUSD",
+    name: "BTCUSD",
   },
   {
     id: "2",
-    label: "ETHUSD"
+    name: "ETHUSD"
   }
 ]
 
+const allPairs: Pairs[] = [
+  {
+    id: "1",
+    name: "BTCUSD",
+  },
+  {
+    id: "2",
+    name: "ETHUSD"
+  },
+  {
+    id: "3",
+    name: "USDTUSD",
+  },
+  {
+    id: "4",
+    name: "XRPUSD"
+  },
+  {
+    id: "5",
+    name: "BNBUSD",
+  },
+  {
+    id: "6",
+    name: "SOLUSD"
+  },
+  {
+    id: "7",
+    name: "USDCUSD",
+  },
+  {
+    id: "8",
+    name: "STETHUSD"
+  },
+  {
+    id: "9",
+    name: "TRXUSD",
+  },
+  {
+    id: "10",
+    name: "DOGEUSD"
+  },
+]
 
 export default function Index() {
 
@@ -59,7 +101,7 @@ export default function Index() {
       {visible1 &&
         <FlatList
           data={initialPairs}
-          renderItem={({ item }) => <Text>{item.label}</Text>} />}
+          renderItem={({ item }) => <Text>{item.name}</Text>} />}
       <Pressable onPress={() => setVisible2(!visible2)}>
         <Text style={styles.text}>
           {initialData[1].label}
@@ -68,7 +110,7 @@ export default function Index() {
       {visible2 &&
         <FlatList
           data={initialPairs}
-          renderItem={({ item }) => <Text>{item.label}</Text>} />}
+          renderItem={({ item }) => <Text>{item.name}</Text>} />}
       <Pressable onPress={() => setVisible3(!visible3)}>
         <Text style={styles.text}>
           {initialData[2].label}
@@ -77,7 +119,7 @@ export default function Index() {
       {visible3 &&
         <FlatList
           data={initialPairs}
-          renderItem={({ item }) => <Text>{item.label}</Text>} />}
+          renderItem={({ item }) => <Text>{item.name}</Text>} />}
     </View>
   );
 }
