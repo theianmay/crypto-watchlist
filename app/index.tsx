@@ -41,27 +41,43 @@ const initialPairs: Watchlist[] = [
 
 export default function Index() {
 
-  const [visible, setVisible] = useState(true)
+  const [visible1, setVisible1] = useState(true)
+  const [visible2, setVisible2] = useState(true)
+  const [visible3, setVisible3] = useState(true)
+
 
   return (
     <View style={styles.container}>
       <AppHeader>
         Watchlists
       </AppHeader>
-      <Text style={styles.text}>{initialData[0].label}</Text>
-      <Text style={styles.text}>{initialData[1].label}</Text>
-      <Text style={styles.text}>{initialData[2].label}</Text>
-      <Pressable onPress={() => setVisible(!visible)}>
+      <Pressable onPress={() => setVisible1(!visible1)}>
         <Text style={styles.text}>
-          Click Me
+          {initialData[0].label}
         </Text>
       </Pressable>
-      {visible &&
+      {visible1 &&
         <FlatList
           data={initialPairs}
-          renderItem={({ item }) => <Text>{item.label}</Text>} />
-      }
-
+          renderItem={({ item }) => <Text>{item.label}</Text>} />}
+      <Pressable onPress={() => setVisible2(!visible2)}>
+        <Text style={styles.text}>
+          {initialData[1].label}
+        </Text>
+      </Pressable>
+      {visible2 &&
+        <FlatList
+          data={initialPairs}
+          renderItem={({ item }) => <Text>{item.label}</Text>} />}
+      <Pressable onPress={() => setVisible3(!visible3)}>
+        <Text style={styles.text}>
+          {initialData[2].label}
+        </Text>
+      </Pressable>
+      {visible3 &&
+        <FlatList
+          data={initialPairs}
+          renderItem={({ item }) => <Text>{item.label}</Text>} />}
     </View>
   );
 }
